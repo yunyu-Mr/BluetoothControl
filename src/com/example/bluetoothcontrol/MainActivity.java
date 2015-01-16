@@ -11,6 +11,8 @@ import android.content.*;
 
 public class MainActivity extends Activity {
 
+	private static final int REQUEST_ENABLE_BT = 3;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,11 +20,11 @@ public class MainActivity extends Activity {
         
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
-            // Device does not support
+            // Device does not support bluetooth
         }
         if (!mBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableBtIntent, 1);
+            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
         }
     }
 
