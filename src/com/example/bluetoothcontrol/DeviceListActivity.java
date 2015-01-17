@@ -145,6 +145,7 @@ public class DeviceListActivity extends Activity {
     }
 
     /**
+     * 发射结果
      * The on-click listener for all devices in the ListViews
      */
     private AdapterView.OnItemClickListener mDeviceClickListener
@@ -162,12 +163,14 @@ public class DeviceListActivity extends Activity {
             intent.putExtra(EXTRA_DEVICE_ADDRESS, address);
 
             // Set result and finish this Activity
+            //会在onActivityResult中处理这个result(其他activity中)
             setResult(Activity.RESULT_OK, intent);
             finish();
         }
     };
 
     /**
+     * 用来显示搜索设备的，不用管它
      * The BroadcastReceiver that listens for discovered devices and changes the title when
      * discovery is finished
      */
