@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.bluetooth.*;
-import android.content.*;
-
+import android.content.Intent;
+import android.widget.Button;
+import android.view.View.OnClickListener;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -17,6 +19,15 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button button = (Button)findViewById(R.id.button1);
+        
+        button.setOnClickListener(
+        		new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						startActivity( new Intent(MainActivity.this,
+								DeviceListActivity.this));
+					}  }  );
         
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
